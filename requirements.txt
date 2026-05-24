@@ -4,3 +4,4 @@ groq
 cohere
 mistralai
 python-dotenv
+pypdf
