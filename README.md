@@ -1,4 +1,4 @@
-<img width="260" height="640" alt="image" src="https://github.com/user-attachments/assets/91099de9-96a3-4fd4-a40e-e8361a29306c" /># 🚀 AI Study Assistant – Multi-Model Learning Platform
+# 🚀 AI Study Assistant – Multi-Model Learning Platform
 
 An interactive, cloud-based AI Study Assistant that allows users to upload documents (PDF/Word) and chat with them using state-of-the-art Large Language Models (LLMs). This application provides a seamless learning experience by combining advanced document parsing with real-time model switching capabilities.
 
