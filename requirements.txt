@@ -5,3 +5,4 @@ cohere
 mistralai
 python-dotenv
 pypdf
+docx2txt
