@@ -1,0 +1,6 @@
+streamlit
+google-generativeai
+groq
+cohere
+mistralai
+python-dotenv
