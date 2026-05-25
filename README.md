@@ -15,6 +15,16 @@ An interactive, cloud-based AI Study Assistant that allows users to upload docum
 
 ---
 
+## 🎨 Interactive Workspace Matrix (New Layout)
+
+I have re-engineered the user experience from a single-page chat view into a premium **4-Node Interactive Workspace Dashboard** featuring smooth hover scaling effects and automated component routing:
+
+* **💬 AI Tutor Room:** Socratic-style conversational assistant designed to teach core patterns.
+* **📝 Synthesize Notes:** Document parsing hub that turns raw files into structured study guides.
+* **🧠 Assessment Engine:** Generates instant review quizzes directly from your uploaded materials.
+* **💡 Concept Explainer:** Breaks down deep theoretical topics across 4 customizable complexity depths.
+---
+
 ## 🛠️ Technical Stack
 
 * **Frontend & Dashboard:** Streamlit (Python)
