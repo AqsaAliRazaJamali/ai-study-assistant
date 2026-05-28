@@ -1,10 +1,13 @@
+import os
 import streamlit as st
 import google.generativeai as genai
 from groq import Groq
-import os
 from dotenv import load_dotenv
 import cohere
 from utils.prompts import SYSTEM_PROMPTS
+import google.api_core.exceptions as google_exceptions
+from utils.api_config import init_gemini, switch_to_next_key
+
 load_dotenv()
 
 DIRECT_GEMINI_KEY = st.secrets.get("GEMINI_API_KEY", "")
@@ -16,78 +19,77 @@ try:
 except Exception:
     MISTRAL_AVAILABLE = False
 
-def render_chatbot(model_placeholder):
-    st.header("💬 AI Tutor")
-    st.caption("Exploring concepts together...")
+
+def render_chatbot():
+    st.title("💬 Interactive AI Tutor")
 
     if "chat_history" not in st.session_state:
         st.session_state.chat_history = []
 
-    # Chat history display
+    # Display conversational log history
     for message in st.session_state.chat_history:
         with st.chat_message(message["role"]):
             st.markdown(message["content"])
 
-    if user_input := st.chat_input("What concept are we exploring today?"):
+    if user_prompt := st.chat_input("Ask your academic question..."):
         with st.chat_message("user"):
-            st.markdown(user_input)
-        st.session_state.chat_history.append({"role": "user", "content": user_input})
+            st.markdown(user_prompt)
+        st.session_state.chat_history.append({"role": "user", "content": user_prompt})
 
-        prompt_with_context = f"{SYSTEM_PROMPTS['tutor']}\n\nUser Question: {user_input}"
-        
         with st.chat_message("assistant"):
             response_placeholder = st.empty()
             full_response = ""
-            success = False
-
-            # --- TRY ENGINE 1: GEMINI (Optimized to Flash-Lite) ---
-            if DIRECT_GEMINI_KEY and not DIRECT_GEMINI_KEY.startswith("YAHAN_"):
-                try:
-                    genai.configure(api_key=DIRECT_GEMINI_KEY)
-                   
-                    dynamic_model = genai.GenerativeModel('gemini-2.5-flash-lite')
-                    
-                    contents_payload = [{"role": "user" if m["role"] == "user" else "model", "parts": [m["content"]]} for m in st.session_state.chat_history[:-1]]
-                    chat_session = dynamic_model.start_chat(history=contents_payload)
-                    
-                    response_stream = chat_session.send_message(prompt_with_context, stream=True)
-                    for chunk in response_stream:
-                        full_response += chunk.text
-                        response_placeholder.markdown(full_response + "▌")
-                    response_placeholder.markdown(full_response)
-                    success = True
-                except Exception:
-                    
-                    pass
-
-            # --- TRY ENGINE 2: GROQ FALLBACK ---
-            if not success and DIRECT_GROQ_KEY and not DIRECT_GROQ_KEY.startswith("YAHAN_"):
-                # Inform the user seamlessly without breaking the layout
-                with st.spinner("Routing query through backup high-speed node..."):
-                    try:
-                        client = Groq(api_key=DIRECT_GROQ_KEY)
-                        groq_messages = [{"role": "system", "content": SYSTEM_PROMPTS['tutor']}]
-                        for msg in st.session_state.chat_history:
-                            groq_messages.append({"role": msg["role"], "content": msg["content"]})
-
-                        completion = client.chat.completions.create(
-                            model="llama-3.3-70b-versatile",
-                            messages=groq_messages,
-                            stream=True
-                        )
-                        for chunk in completion:
-                            if chunk.choices[0].delta.content:
-                                full_response += chunk.choices[0].delta.content
-                                response_placeholder.markdown(full_response + "▌")
+            
+            # Rebuild history payload for Gemini's structural format safely
+            gemini_history = []
+            for msg in st.session_state.chat_history[:-1]:
+                role = "user" if msg["role"] == "user" else "model"
+                gemini_history.append({"role": role, "parts": [msg["content"]]})
+            
+            # --- TRY ENGINE LOOP ---
+            try:
+                # 1. Initialize the model using the current active key index
+                model_engine = init_gemini()
+                
+                # Create chat instance and apply system tutoring instructions explicitly
+                chat_session = model_engine.start_chat(history=gemini_history)
+                
+                # Inject System Instructions safely into the context runtime execution
+                enriched_prompt = f"{SYSTEM_PROMPTS.get('tutor', '')}\n\nUser Question: {user_prompt}"
+                
+                response = chat_session.send_message(enriched_prompt, stream=True)
+                for chunk in response:
+                    full_response += chunk.text
+                    response_placeholder.markdown(full_response + "▌")
+                response_placeholder.markdown(full_response)
+                
+            except google_exceptions.ResourceExhausted:
+                # 2. Catch the 429 quota error cleanly in the background
+                with st.spinner("🔄 High traffic on current node. Switching to backup server..."):
+                    if switch_to_next_key():
+                        try:
+                            # 3. Re-initialize with the next fresh key from your pool
+                            model_engine_backup = init_gemini()
+                            chat_session_backup = model_engine_backup.start_chat(history=gemini_history)
+                            
+                            # Re-run explicit prompt context on the backup cluster safely
+                            backup_prompt = f"{SYSTEM_PROMPTS.get('tutor', '')}\n\nUser Question: {user_prompt}"
+                            response_backup = chat_session_backup.send_message(backup_prompt)
+                            
+                            full_response = response_backup.text
+                            response_placeholder.markdown(full_response)
+                        except (google_exceptions.ResourceExhausted, Exception):
+                            # Safe fallback if backup key is ALSO exhausted right now
+                            full_response = "🤖 *The backup channel is also experiencing high volume. Please resubmit this prompt in 10 seconds.*"
+                            response_placeholder.markdown(full_response)
+                    else:
+                        full_response = "🤖 *All available free-tier backup key pools have reached daily capacities. Please try again later.*"
                         response_placeholder.markdown(full_response)
-                        success = True
-                    except Exception:
-                        pass
-
-            # If both options completely fail
-            if not success:
-                st.error("❌ High traffic detected across all learning channels. Please try submitting your question again in 10-15 seconds.")
-
-        if success:
-            st.session_state.chat_history.append({"role": "assistant", "content": full_response})
-            st.rerun()
+                        
+            except Exception as e:
+                st.error(f"Unexpected connection error: {e}")
+                full_response = "Apologies, an execution failure occurred handling the AI module."
+                response_placeholder.markdown(full_response)
+            
+        st.session_state.chat_history.append({"role": "assistant", "content": full_response})
+        st.rerun()
