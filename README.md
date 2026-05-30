@@ -1,9 +1,11 @@
 # 🚀 AI Study Assistant – Multi-Model Learning Platform
 
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+![Google Gemini](https://img.shields.io/badge/Gemini_AI-4285F4?style=for-the-badge&logo=google&logoColor=white)
+![Groq](https://img.shields.io/badge/Groq-000000?style=for-the-badge&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
-![AI Powered](https://img.shields.io/badge/AI-Powered-blueviolet?style=for-the-badge)
-![Multi Model](https://img.shields.io/badge/Multi--Model-Gemini_+_Groq-orange?style=for-the-badge)
 
 An interactive, cloud-based AI Study Assistant that allows users to upload documents (PDF/Word) and chat with them using state-of-the-art Large Language Models (LLMs). This application provides a seamless learning experience by combining advanced document parsing with real-time model switching capabilities.
 
