@@ -100,7 +100,7 @@ def main():
         render_sleek_dashboard()
     elif st.session_state.active_tab == "💬 AI Tutor Room":
         render_back_navigation()
-        render_chatbot(model)
+        render_chatbot()
     elif st.session_state.active_tab == "📝 Synthesize Notes":
         render_back_navigation()
         render_summarizer(model)
