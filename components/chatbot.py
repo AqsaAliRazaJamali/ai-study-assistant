@@ -20,7 +20,7 @@ except Exception:
     MISTRAL_AVAILABLE = False
 
 
-def render_chatbot():
+def render_chatbot(model_placeholder=None):
     st.title("💬 Interactive AI Tutor")
 
     if "chat_history" not in st.session_state:
