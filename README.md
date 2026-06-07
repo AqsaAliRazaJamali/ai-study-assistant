@@ -8,7 +8,7 @@
 ![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
 ![PDF](https://img.shields.io/badge/PDF_Processing-DC143C?style=for-the-badge&logo=adobeacrobatreader&logoColor=white)
 ![DOCX](https://img.shields.io/badge/DOCX_Parsing-2B579A?style=for-the-badge&logo=microsoftword&logoColor=white)
-![MIT License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
+![Issues](https://img.shields.io/github/issues/AqsaAliRazaJamali/ai-study-assistant?style=for-the-badge)
 
 An interactive, cloud-based AI Study Assistant that allows users to upload documents (PDF/Word) and chat with them using state-of-the-art Large Language Models (LLMs). This application provides a seamless learning experience by combining advanced document parsing with real-time model switching capabilities.
 
