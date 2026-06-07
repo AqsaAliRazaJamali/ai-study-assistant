@@ -151,16 +151,6 @@ http://localhost:8501
 
 ---
 
-## 🔮 Future Improvements
-
-- PDF Compression
-- PDF Rotation
-- Password Protection
-- Watermark Support
-- Page Preview Thumbnails
-- OCR-Based Text Extraction
-
----
 
 ## 👩‍💻 Author
 
