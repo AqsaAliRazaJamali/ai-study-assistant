@@ -21,7 +21,7 @@ An interactive, Cloud-based AI Study Assistant that allows users to upload docum
 * **Multi-Model Selection:** Toggle instantly between **Gemini Pro** (Google) and **Groq Cloud** inference engines depending on your requirements.
 * **Smart Document Parser:** Automated and robust text extraction from both **PDF (`.pdf`)** and **Word (`.docx`)** files.
 * **Interactive Chat Dashboard:** A clean, responsive user interface built using Streamlit with real-time conversational streaming.
-* **Secure Key Management:** Production-ready backend architecture using encrypted environment variables and Streamlit Secrets (`secrets.toml`).
+* **Secure Key Management:** Production-ready backend architecture using encrypted Environment variables and Streamlit Secrets (`secrets.toml`).
 
 ---
 
