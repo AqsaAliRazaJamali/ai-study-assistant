@@ -27,7 +27,7 @@ An interactive, Cloud-based AI Study Assistant that allows users to upload Docum
 
 ## 🎨 Interactive Workspace Matrix
 
-I have re-engineered the user experience from a Single-page chat view into a premium **4-Node Interactive Workspace Dashboard** featuring smooth hover scaling effects and automated component routing:
+I have re-engineered the user experience from a Single-Page chat view into a premium **4-Node Interactive Workspace Dashboard** featuring smooth hover scaling effects and automated component routing:
 
 * **💬 AI Tutor Room:** Socratic-style conversational assistant designed to teach core patterns.
 * **📝 Synthesize Notes:** Document parsing hub that turns raw files into structured study guides.
