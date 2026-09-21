@@ -25,7 +25,7 @@ An interactive, cloud-based AI Study Assistant that allows users to upload Docum
 
 ---
 
-## 🎨 Interactive Workspace Matrix
+## Interactive Workspace Matrix
 
 I have re-engineered the user experience from a single-page chat view into a premium **4-Node Interactive Workspace Dashboard** featuring smooth hover scaling effects and automated component routing:
 
