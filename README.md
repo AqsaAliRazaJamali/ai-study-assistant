@@ -16,7 +16,7 @@ An interactive, cloud-based AI Study Assistant that allows users to upload Docum
 
 ---
 
-## Key Features
+## Key(Core) Features
 
 * **Multi-Model Selection:** Toggle instantly between **Gemini Pro** (Google) and **Groq Cloud** inference engines depending on your requirements.
 * **Smart Document Parser:** Automated and robust text extraction from both **PDF (`.pdf`)** and **Word (`.docx`)** files.
