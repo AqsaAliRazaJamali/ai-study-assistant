@@ -49,7 +49,7 @@ I have re-engineered the user experience from a single-page chat view into a pre
 ai-study-assistant/
 │
 ├── .streamlit/
-│   └── secrets.toml               # Local API keys configuration (Not uploaded to GitHub)
+│   └── secrets.toml               # Local API keys configuration
 │
 ├── components/
 │   ├── chatbot.py            
