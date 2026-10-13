@@ -140,7 +140,7 @@ http://localhost:8501
 
 ---
 
-## 📚 Use Cases.
+## 📚 Use Cases
 
 - Study assistance
 - Research note summarization
