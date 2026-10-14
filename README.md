@@ -109,7 +109,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🔑 Configure API Keys
+## Configure API Keys
 
 Create a file named:
 
