@@ -10,7 +10,7 @@
 ![DOCX](https://img.shields.io/badge/DOCX_Parsing-2B579A?logo=microsoftword&logoColor=white)
 ![Issues](https://img.shields.io/github/issues/AqsaAliRazaJamali/ai-study-assistant)
 
-An interactive, cloud-based AI Study Assistant that allows users to upload Documents (PDF/Word) and Chat with them using State-Of-The-Art Large Language Models (LLMs). This application provides a seamless learning experience by combining advanced document parsing with Real-time model switching capabilities.
+An interactive, cloud-based AI Study Assistant that enables users to upload PDF and Word documents and interact with their content through intelligent, context-aware conversations powered by state-of-the-art Large Language Models (LLMs). The application combines advanced document processing, Retrieval-Augmented Generation (RAG), and seamless real-time model switching to deliver a personalized and efficient learning experience.
 
 👉 **Live Application:** [ai-study-assistant-aqsa.streamlit.app](https://ai-study-assistant-aqsa.streamlit.app) 
 
