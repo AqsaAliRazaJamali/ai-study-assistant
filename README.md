@@ -10,9 +10,9 @@
 ![DOCX](https://img.shields.io/badge/DOCX_Parsing-2B579A?logo=microsoftword&logoColor=white)
 ![Issues](https://img.shields.io/github/issues/AqsaAliRazaJamali/ai-study-assistant)
 
-An intelligent, cloud-based AI Study Assistant engineered to revolutionize the way students access, understand, and interact with academic knowledge. The platform enables users to upload PDF and Word documents, engage in intelligent, context-aware conversations, retrieve precise, document-grounded answers, and simplify complex academic concepts through an interactive, personalized learning experience.
+An intelligent, cloud-based AI Study Assistant that redefines how students access, comprehend, and interact with academic knowledge. The platform transforms conventional study materials into an interactive learning experience, enabling users to upload PDF and Word documents, engage in context-aware conversations, retrieve accurate, document-grounded answers, and develop a deeper understanding of complex concepts.
 
-Built upon advanced Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), intelligent document processing, and dynamic LLM switching, the system transforms static academic resources into an interactive knowledge environment. By combining semantic retrieval with context-aware AI reasoning, it delivers relevant, source-grounded responses while enabling students to explore information, strengthen conceptual understanding, and learn more effectively.
+Powered by advanced Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), intelligent document processing, and dynamic AI model switching, the system combines contextual retrieval with intelligent response generation to deliver relevant, evidence-based insights grounded in uploaded academic resources. Beyond information retrieval, it provides an adaptive and personalized learning environment that helps students summarize content, explore unfamiliar topics, reinforce conceptual understanding, and engage with their study materials more effectively.
 
 👉 **Live Application:** [ai-study-assistant-aqsa.streamlit.app](https://ai-study-assistant-aqsa.streamlit.app) 
 
